@@ -3,25 +3,81 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --gruvbox-bg-soft: #32302f;
+  --gruvbox-bg: #282828;
+  --gruvbox-bg-hard: #1d2021;
+
+  --gruvbox-fg-soft: #ebdbb2;
+  --gruvbox-fg: #ebdbb2;
+  --gruvbox-fg-hard: #d5c4a1;
+
+  --gruvbox-red: #cc241d;
+  --gruvbox-green: #98971a;
+  --gruvbox-yellow: #d79921;
+  --gruvbox-blue: #458588;
+  --gruvbox-purple: #b16286;
+  --gruvbox-aqua: #689d6a;
+  --gruvbox-orange: #d65d0e;
+
+  --gruvbox-gray: #a89984;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  height: 100vh;
+  width: 100vw;
+  background: url("../public/ign_legendary.png") center/cover no-repeat;
+  font-family: monospace;
+  font-size: 16px;
+}
+
+.app_container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.terminal_container {
+  overflow-y: scroll;
+  height: 92%;
+  width: 97%;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--gruvbox-bg-soft);
+  border: 2px solid var(--gruvbox-fg);
+  /*backdrop-filter: blur(20px); 
+  opacity: 0.7; */   
+}
+
+.ascii{
+  color: white;
+}
+
+.command_prefix{
+  color: rgb(255, 0, 0);
+  font-family: monospace;
+}
+
+.command_container{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.command_input{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+}
+
+.result_text, .command_text{
+  color: white;
 }
